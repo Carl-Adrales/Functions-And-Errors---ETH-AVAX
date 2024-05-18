@@ -2,42 +2,33 @@
     This program is a smart contract that implements the require(), assert() and revert() statements.
 
 ## Description
-    Hi everyone, my name is Carl. I will be discussing functions and error using ETH + AVAX. I will explain how to define functions and errors in your contract, declare variables, and create public functions that set and check values. I will also demonstrate how to compile, deploy, and run transactions using the Solidity compiler.
-
+    Hi everyone, my name is Carl from bsit3.4. In this video, I will be discussing functions and errors in Solidity using a trivial and avalanche. I will explain how to insert coins, double the bet, and withdraw coins. I will also guide you through deploying the project.
 ## Getting Started
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract FunctionsAndErrors {
-    uint256 public value;
+contract BettingGame {
+    uint256 public coin;
 
-    // Sets the value if the input is positive
-    function setValue(uint256 _value) public {
-        // Ensure the value is non-zero
-        require(_value > 0, "Value must be positive");
-        value = _value;
+    function insertCoin(uint256 _coin) public {
+    require(_coin > 0, "Insert a coin");
+    coin = _coin; 
+    assert(coin == _coin);
+
     }
 
-    // Doubles the value if the current value is even
-    function doubleValue() public {
-        // Ensure the value is even
-        require(value % 2 == 0, "Value must be even to double");
-        value *= 2;
+    function betTwice() public {
+        require(coin > 0 && coin % 2 == 0, "You have to insert coin to bet twice.");
+        coin *= 2;
+
     }
 
-    // Asserts that the value is positive
-    function checkValue() public view {
-        // Assert the value is greater than zero
-        assert(value > 0);
+    function withdraw() public {
+    if (coin == 0) {
+        revert("No coins to withdraw.");
     }
+    coin = 0;
 
-    // Resets the value to zero and reverts if the value is not zero
-    function resetValue() public {
-        if (value == 0) {
-            // Revert with a custom error message
-            revert("Value is already zero");
-        }
-        value = 0;
     }
 }
 
