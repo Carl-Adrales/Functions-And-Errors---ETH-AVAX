@@ -5,7 +5,9 @@
     Hi everyone, my name is Carl from bsit3.4. In this video, I will be discussing functions and errors 
     in Solidity using a trivial and avalanche. I will explain how to insert coins, double the bet, and 
     withdraw coins. I will also guide you through deploying the project.
+    
 ## Getting Started
+```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -33,7 +35,7 @@ contract BettingGame {
 
     }
 }
-
+```
 ## Executing Program 
     To run this program, you can use Remix, an online Solidity IDE. To get started, go to the 
     Remix website at https://remix.ethereum.org/. Once you are on the Remix website, create a 
